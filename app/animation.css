@@ -1,0 +1,174 @@
+@keyframes softReveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.2rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeReveal {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes lineSweep {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes diamondReveal {
+  from {
+    opacity: 0;
+    filter: blur(14px) saturate(0.85);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0) saturate(1);
+  }
+}
+
+@keyframes cupShine {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0.8rem color-mix(in srgb, var(--cup-main) 28%, transparent));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 1.6rem color-mix(in srgb, var(--cup-main) 58%, transparent));
+  }
+}
+
+.hero-nav {
+  animation: fadeReveal 620ms ease both;
+}
+
+.hero-badge {
+  animation: softReveal 680ms 90ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-title {
+  animation: softReveal 760ms 170ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-title::after {
+  content: "";
+  display: block;
+  width: min(8rem, 42%);
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--color-accent);
+  animation: lineSweep 780ms 520ms ease both;
+}
+
+.hero-description {
+  animation: softReveal 700ms 300ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-actions {
+  animation: softReveal 700ms 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.diamond-gallery {
+  animation: fadeReveal 760ms 260ms ease both;
+}
+
+.diamond {
+  animation: diamondReveal 720ms ease both;
+}
+
+.diamond-1 {
+  animation-delay: 340ms;
+}
+
+.diamond-2 {
+  animation-delay: 440ms;
+}
+
+.diamond-3 {
+  animation-delay: 520ms;
+}
+
+.diamond-photo {
+  transition:
+    opacity 240ms ease,
+    filter 240ms ease,
+    scale 260ms ease;
+}
+
+.diamond:hover .diamond-photo {
+  scale: 1.04;
+}
+
+.hero-action,
+.hero-note,
+.ranking-item,
+.exhibition-art,
+.art-detail-action,
+.art-detail-close {
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.hero-action:hover,
+.hero-note:hover,
+.ranking-item:hover,
+.exhibition-art:hover,
+.art-detail-action:hover,
+.art-detail-close:hover {
+  transform: translateY(-0.12rem);
+}
+
+.top-commented-section .section-heading,
+.ranking-board,
+.art-display-card,
+.exhibition-row,
+.site-footer-brand,
+.site-footer-note,
+.site-footer-info,
+.site-footer-bottom {
+  animation: softReveal 720ms ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 28%;
+}
+
+.art-display-card {
+  animation-duration: 520ms;
+}
+
+.display-cup {
+  animation: cupShine 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}

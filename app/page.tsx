@@ -8,14 +8,13 @@ import { Navbar } from "@/components/layout/Navbar";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-black)] text-[var(--color-white)]">
-      <section className="showcase-shell relative h-screen w-screen overflow-hidden">
+      <section className="showcase-shell relative h-screen w-screen overflow-hidden" id="home">
         <Navbar />
 
-        <div className="relative z-10 flex h-full w-full items-center px-8 sm:px-16 lg:px-24">
+        <div className="hero-inner relative z-10 mx-auto grid h-full w-full max-w-7xl items-center">
           <HeroContent />
+          <HeroArtwork />
         </div>
-
-        <HeroArtwork />
       </section>
 
       <TopCommentedArtworks />

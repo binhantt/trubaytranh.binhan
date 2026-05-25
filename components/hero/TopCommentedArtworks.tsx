@@ -1,7 +1,4 @@
-"use client";
-
-import { Badge, Box, Button, Card, Flex, Heading, Text } from "@radix-ui/themes";
-import { useState } from "react";
+import { Badge, Box, Card, Flex, Heading, Text } from "@radix-ui/themes";
 
 import { siteData } from "@/database/site-data";
 
@@ -22,93 +19,119 @@ function getMedalClass(rank: string) {
 }
 
 export function TopCommentedArtworks() {
-  const [activeArtwork, setActiveArtwork] = useState<
-    (typeof siteData.topCommentedArtworks)[number]
-  >(siteData.topCommentedArtworks[0]);
-  const medalClass = getMedalClass(activeArtwork.rank);
-
   return (
-    <section className="top-commented-section px-6 sm:px-10 lg:px-24">
+    <section className="top-commented-section px-6 sm:px-10 lg:px-24" id="gallery">
       <Flex className="mx-auto w-full max-w-6xl" direction="column" gap="5">
         <Box className="section-heading ranking-heading">
           <Text as="p">Được người xem bình luận nhiều nhất</Text>
           <Heading as="h2">Tranh nổi bật</Heading>
         </Box>
 
-        <Box className="ranking-layout">
-          <Card className="ranking-board" variant="surface">
-            <Flex align="center" justify="between">
-              <Text as="p" className="ranking-board-title">
-                Bảng xếp hạng
-              </Text>
-              <Badge color="sky" variant="surface">
-                Top 5
-              </Badge>
-            </Flex>
+        <Box className="top-art-selector">
+          {siteData.topCommentedArtworks.map((artwork, index) => (
+            <input
+              className="ranking-radio"
+              defaultChecked={index === 0}
+              id={`top-art-choice-${index + 1}`}
+              key={artwork.rank}
+              name="top-artwork"
+              type="radio"
+            />
+          ))}
 
-            <Flex className="ranking-list" direction="column" gap="2">
-              {siteData.topCommentedArtworks.map((artwork, index) => (
-                <Button
-                  className={`ranking-item ${
-                    activeArtwork.rank === artwork.rank ? "is-active" : ""
-                  }`}
-                  highContrast
-                  key={artwork.rank}
-                  onClick={() => setActiveArtwork(artwork)}
-                  type="button"
-                  variant="ghost"
-                >
-                  <span className={`ranking-number ${getMedalClass(artwork.rank)}`}>
-                    {index + 1}
-                  </span>
-                  <span className="ranking-copy">
-                    <strong>{artwork.title}</strong>
-                    <small>{artwork.rank}</small>
-                  </span>
-                  <span className="ranking-comments">{artwork.comments}</span>
-                </Button>
-              ))}
-            </Flex>
-          </Card>
-
-          <Card className="art-display-card" variant="surface">
-            <Flex align="start" className="art-display-header" justify="between">
-              <Box>
-                <Badge color="sky" highContrast variant="surface">
-                  {activeArtwork.rank}
+          <Box className="ranking-layout">
+            <Card className="ranking-board" variant="surface">
+              <Flex align="center" justify="between">
+                <Text as="p" className="ranking-board-title">
+                  Bảng xếp hạng
+                </Text>
+                <Badge color="sky" variant="surface">
+                  Top 5
                 </Badge>
-                <Heading as="h3">{activeArtwork.title}</Heading>
-                <Text as="p">Tác giả: {activeArtwork.author}</Text>
-              </Box>
+              </Flex>
 
-              <span className={`display-cup ${medalClass}`} aria-hidden="true">
-                <span className="display-cup-bowl" />
-                <span className="display-cup-stem" />
-                <span className="display-cup-base" />
-              </span>
-            </Flex>
+              <Flex className="ranking-list" direction="column" gap="2">
+                {siteData.topCommentedArtworks.map((artwork, index) => (
+                  <label
+                    className={`ranking-item ${getMedalClass(artwork.rank)}`}
+                    htmlFor={`top-art-choice-${index + 1}`}
+                    key={artwork.rank}
+                  >
+                    <span className={`ranking-number ${getMedalClass(artwork.rank)}`}>
+                      {index + 1}
+                    </span>
+                    <span className="ranking-copy">
+                      <strong>{artwork.title}</strong>
+                      <small className={`ranking-rank ${getMedalClass(artwork.rank)}`}>
+                        {artwork.rank}
+                      </small>
+                    </span>
+                    <span className="ranking-comments">{artwork.comments}</span>
+                  </label>
+                ))}
+              </Flex>
+            </Card>
 
-            <Box className="art-frame-shell">
-              <Box className="art-frame-3d">
-                <Box
-                  aria-label={activeArtwork.title}
-                  className="art-frame-image"
-                  role="img"
-                  style={{ backgroundImage: `url(${activeArtwork.imageUrl})` }}
-                />
-              </Box>
+            <Box className="art-display-panels">
+              {siteData.topCommentedArtworks.map((artwork, index) => {
+                const medalClass = getMedalClass(artwork.rank);
+
+                return (
+                  <Card
+                    className={`art-display-card art-display-card-${index + 1}`}
+                    key={artwork.rank}
+                    variant="surface"
+                  >
+                    <Flex align="start" className="art-display-header" justify="between">
+                      <Box>
+                        <Flex
+                          align="center"
+                          className={`featured-kicker ${medalClass}`}
+                          gap="2"
+                        >
+                          <Badge className={`featured-rank-badge ${medalClass}`} variant="surface">
+                            {artwork.rank}
+                          </Badge>
+                          <Text as="span">
+                            {index === 0 ? "Được chú ý nhất" : "Được bình luận nhiều"}
+                          </Text>
+                        </Flex>
+                        <Heading as="h3">{artwork.title}</Heading>
+                        <Text as="p">Tác giả: {artwork.author}</Text>
+                      </Box>
+
+                      <span className={`display-cup ${medalClass}`} aria-hidden="true">
+                        <span className="display-cup-bowl" />
+                        <span className="display-cup-stem" />
+                        <span className="display-cup-base" />
+                      </span>
+                    </Flex>
+
+                    <Box className="art-frame-shell">
+                      <Box className="art-frame-3d">
+                        <Box
+                          aria-label={artwork.title}
+                          className="art-frame-image"
+                          role="img"
+                          style={{ backgroundImage: `url(${artwork.imageUrl})` }}
+                        />
+                      </Box>
+                    </Box>
+
+                    <Flex align="end" className="art-display-footer" justify="between">
+                      <Box>
+                        <Heading as="h3">{artwork.title}</Heading>
+                        <Text as="p">{artwork.description}</Text>
+                      </Box>
+                      <Badge color="sky" highContrast variant="surface">
+                        {artwork.comments}
+                      </Badge>
+                    </Flex>
+                  </Card>
+                );
+              })}
             </Box>
-
-            <Flex align="end" className="art-display-footer" justify="between">
-              <Box>
-                <Heading as="h3">{activeArtwork.title}</Heading>
-                <Text as="p">{activeArtwork.description}</Text>
-              </Box>
-              <Badge color="sky" highContrast variant="surface">
-                {activeArtwork.comments}
-              </Badge>
-            </Flex>
-          </Card>
+          </Box>
         </Box>
       </Flex>
     </section>

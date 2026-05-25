@@ -4,7 +4,7 @@ import { siteData } from "@/database/site-data";
 
 export function Footer() {
   return (
-    <footer className="site-footer px-6 py-16 sm:px-10 lg:px-24">
+    <footer className="site-footer px-6 py-16 sm:px-10 lg:px-24" id="site-footer">
       <Box className="mx-auto w-full max-w-6xl">
         <Flex className="site-footer-hero" gap="6" justify="between">
           <Box className="site-footer-brand">
