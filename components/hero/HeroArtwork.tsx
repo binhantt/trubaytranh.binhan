@@ -18,7 +18,9 @@ export function HeroArtwork() {
 
       <div className="hero-artwork-index" aria-hidden="true">
         <span>ART</span>
-        <strong>01</strong>
+        <strong className="hero-art-number hero-art-number-1">01</strong>
+        <strong className="hero-art-number hero-art-number-2">02</strong>
+        <strong className="hero-art-number hero-art-number-3">03</strong>
       </div>
 
       {siteData.hero.artworks.map((artwork, index) => (

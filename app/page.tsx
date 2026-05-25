@@ -10,6 +10,12 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--color-black)] text-[var(--color-white)]">
       <section className="showcase-shell relative h-screen w-screen overflow-hidden" id="home">
         <Navbar />
+        <span className="hero-decor hero-decor-line" aria-hidden="true" />
+        <span className="hero-decor hero-decor-dot hero-decor-dot-1" aria-hidden="true" />
+        <span className="hero-decor hero-decor-dot hero-decor-dot-2" aria-hidden="true" />
+        <span className="hero-decor hero-decor-label" aria-hidden="true">
+          Curated / 2026
+        </span>
 
         <div className="hero-inner relative z-10 mx-auto grid h-full w-full max-w-7xl items-center">
           <HeroContent />

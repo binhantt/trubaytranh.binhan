@@ -1,8 +1,8 @@
 import { Button, Flex } from "@radix-ui/themes";
 
 const navigationItems = [
-  { href: "#home", label: "Trang chủ" },
-  { href: "#gallery", label: "Bộ sưu tập" },
+  { href: "#gallery", label: "Bảng xếp hạng" },
+  { href: "#exhibitions", label: "Triển lãm" },
   { href: "#site-footer", label: "Liên hệ" },
 ];
 
