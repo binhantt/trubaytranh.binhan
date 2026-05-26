@@ -222,6 +222,8 @@
 .ranking-number,
 .ranking-rank,
 .exhibition-art,
+.exhibition-art-caption,
+.exhibition-art-line,
 .painting-scene,
 .art-detail-action,
 .art-detail-close,
@@ -344,16 +346,33 @@
   filter: saturate(1.08) contrast(1.04);
 }
 
-.art-detail-modal:target .art-detail-backdrop {
+.exhibition-art:hover .exhibition-art-caption {
+  border-color: color-mix(in srgb, var(--exhibition-accent) 58%, var(--color-white));
+  transform: translateY(0.12rem);
+}
+
+.exhibition-art:hover .exhibition-art-line-top {
+  transform: translateX(0.45rem);
+}
+
+.exhibition-art:hover .exhibition-art-line-bottom {
+  transform: translateX(-0.45rem);
+}
+
+.art-detail-modal:target .art-detail-backdrop,
+.art-detail-modal.is-open .art-detail-backdrop {
   animation: backdropFade 220ms ease both;
 }
 
-.art-detail-modal:target .art-detail-dialog {
+.art-detail-modal:target .art-detail-dialog,
+.art-detail-modal.is-open .art-detail-dialog {
   animation: modalPop 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .art-detail-modal:target .art-detail-image,
-.art-detail-modal:target .art-detail-copy {
+.art-detail-modal:target .art-detail-copy,
+.art-detail-modal.is-open .art-detail-image,
+.art-detail-modal.is-open .art-detail-copy {
   animation: softReveal 320ms 80ms ease both;
 }
 

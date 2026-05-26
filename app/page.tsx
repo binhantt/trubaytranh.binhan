@@ -8,7 +8,7 @@ import { Navbar } from "@/components/layout/Navbar";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-black)] text-[var(--color-white)]">
-      <section className="showcase-shell relative h-screen w-screen overflow-hidden" id="home">
+      <section className="showcase-shell relative h-screen w-full overflow-hidden" id="home">
         <Navbar />
         <span className="hero-decor hero-decor-line" aria-hidden="true" />
         <span className="hero-decor hero-decor-dot hero-decor-dot-1" aria-hidden="true" />

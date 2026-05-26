@@ -5,17 +5,24 @@ import { siteData } from "@/database/site-data";
 export function Footer() {
   return (
     <footer className="site-footer px-6 py-16 sm:px-10 lg:px-24" id="site-footer">
-      <Box className="mx-auto w-full max-w-6xl">
+      <span className="site-footer-decor site-footer-decor-1" aria-hidden="true" />
+      <span className="site-footer-decor site-footer-decor-2" aria-hidden="true" />
+
+      <Box className="site-footer-shell mx-auto w-full max-w-6xl">
         <Flex className="site-footer-hero" gap="6" justify="between">
           <Box className="site-footer-brand">
+            <span className="site-footer-kicker">ArtSpace / Online Gallery</span>
             <Heading as="h2">{siteData.footer.brand}</Heading>
             <Text as="p">{siteData.footer.description}</Text>
           </Box>
 
-          <Text as="p" className="site-footer-note">
-            Bộ sưu tập được tuyển chọn cho người xem yêu tranh, nghệ sĩ trẻ và
-            các không gian triển lãm đương đại.
-          </Text>
+          <Box className="site-footer-note">
+            <span>Curated 2026</span>
+            <Text as="p">
+              Bộ sưu tập được tuyển chọn cho người xem yêu tranh, nghệ sĩ trẻ và các không gian
+              triển lãm đương đại.
+            </Text>
+          </Box>
         </Flex>
 
         <Box className="site-footer-info">
