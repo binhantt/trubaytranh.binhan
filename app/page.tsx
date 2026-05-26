@@ -2,6 +2,7 @@ import { ExhibitionSections } from "@/components/hero/ExhibitionSections";
 import { HeroArtwork } from "@/components/hero/HeroArtwork";
 import { HeroContent } from "@/components/hero/HeroContent";
 import { TopCommentedArtworks } from "@/components/hero/TopCommentedArtworks";
+import { VisitGallery } from "@/components/hero/VisitGallery";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 
@@ -25,6 +26,7 @@ export default function Home() {
 
       <TopCommentedArtworks />
       <ExhibitionSections />
+      <VisitGallery />
       <Footer />
     </main>
   );

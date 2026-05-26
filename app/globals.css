@@ -196,11 +196,12 @@ h3,
 .hero-copy-block {
   position: relative;
   display: flex;
-  justify-self: start;
+  justify-self: center;
   width: min(100%, 30rem);
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.95rem;
+  text-align: center;
   text-shadow: none;
 }
 
@@ -242,6 +243,7 @@ h3,
 }
 
 .hero-actions {
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   padding-top: 0.2rem;
@@ -1780,10 +1782,6 @@ h3,
   display: flex;
 }
 
-.art-detail-modal.is-open {
-  display: flex;
-}
-
 .art-detail-backdrop {
   position: absolute;
   inset: 0;
@@ -1955,6 +1953,327 @@ h3,
   font: inherit;
   font-size: 0.85rem;
   font-weight: 900;
+  text-decoration: none;
+}
+
+.visit-gallery-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% 18%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 18rem),
+    linear-gradient(180deg, var(--color-black), color-mix(in srgb, var(--color-accent) 7%, var(--color-black)));
+}
+
+.visit-gallery-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-white) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-white) 5%, transparent) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  mask-image: linear-gradient(180deg, transparent, black 18%, black 82%, transparent);
+  opacity: 0.08;
+}
+
+.visit-gallery-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  max-width: 72rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.visit-gallery-hero,
+.visit-gallery-card {
+  border: 1px solid color-mix(in srgb, var(--color-accent) 24%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--color-white) 4%, var(--color-black));
+  box-shadow: 0 1.6rem 4rem color-mix(in srgb, var(--color-black) 54%, transparent);
+}
+
+.visit-gallery-hero {
+  position: relative;
+  min-height: 29rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.visit-gallery-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 18%, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 15rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 52%);
+}
+
+.visit-gallery-toolbar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.visit-gallery-toolbar span {
+  color: var(--color-white);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.visit-gallery-toolbar span:first-child,
+.visit-gallery-kicker {
+  width: fit-content;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 48%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  padding: 0.45rem 0.72rem;
+}
+
+.visit-room-scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+}
+
+.visit-room-scene::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 16%, transparent);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.visit-room-orbit {
+  position: relative;
+  height: 19rem;
+  width: min(80%, 30rem);
+  transform-style: preserve-3d;
+}
+
+.visit-room-wall,
+.visit-room-floor,
+.visit-room-light,
+.visit-room-frame,
+.visit-room-bench {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.visit-room-wall-back {
+  inset: 9% 10% auto;
+  height: 9.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 24%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-white) 9%, var(--color-black)), color-mix(in srgb, var(--color-accent) 12%, var(--color-black)));
+  transform: rotateX(-90deg) translateZ(8rem);
+  transform-origin: top;
+}
+
+.visit-room-wall-left,
+.visit-room-wall-right {
+  top: 9%;
+  height: 9.5rem;
+  width: 9.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+.visit-room-wall-left {
+  left: 9%;
+  background: color-mix(in srgb, var(--color-white) 6%, var(--color-black));
+  transform: rotateY(90deg) rotateX(-90deg);
+  transform-origin: left top;
+}
+
+.visit-room-wall-right {
+  right: 9%;
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-black));
+  transform: rotateY(-90deg) rotateX(-90deg);
+  transform-origin: right top;
+}
+
+.visit-room-floor {
+  inset: 8% 9% 8%;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-white) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(color-mix(in srgb, var(--color-white) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-black)), var(--color-black));
+  background-size: 3.2rem 3.2rem;
+  box-shadow: inset 0 0 3rem color-mix(in srgb, var(--color-accent) 12%, transparent);
+}
+
+.visit-room-light {
+  left: 50%;
+  top: 22%;
+  height: 0.3rem;
+  width: 9rem;
+  background: var(--color-white);
+  filter: drop-shadow(0 0 1.6rem color-mix(in srgb, var(--color-accent) 76%, transparent));
+  transform: translate(-50%, -6rem) rotateX(-90deg);
+}
+
+.visit-room-frame {
+  top: 12%;
+  height: 3.5rem;
+  width: 4.5rem;
+  border: 0.28rem solid color-mix(in srgb, var(--color-white) 88%, var(--color-accent));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 70%, var(--color-black)), transparent 46%),
+    radial-gradient(circle at 64% 34%, var(--color-white), transparent 16%),
+    color-mix(in srgb, var(--color-accent) 22%, var(--color-black));
+  box-shadow: 0 0.9rem 1.8rem color-mix(in srgb, var(--color-black) 44%, transparent);
+  transform: rotateX(-90deg) translateZ(8.05rem);
+}
+
+.visit-room-frame-1 {
+  left: 22%;
+}
+
+.visit-room-frame-2 {
+  left: 46%;
+}
+
+.visit-room-frame-3 {
+  left: 67%;
+}
+
+.visit-room-bench {
+  left: 50%;
+  top: 58%;
+  height: 1rem;
+  width: 7rem;
+  border-radius: 6px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 56%, var(--color-black)), var(--color-white));
+  box-shadow: 0 0.8rem 1.8rem color-mix(in srgb, var(--color-black) 42%, transparent);
+  transform: translateX(-50%) translateZ(1.4rem);
+}
+
+.visit-gallery-caption {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 3;
+  max-width: 16rem;
+  padding: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 24%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--color-black) 70%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.visit-gallery-caption span,
+.visit-gallery-info span {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.visit-gallery-caption p {
+  margin-top: 0.35rem;
+  color: color-mix(in srgb, var(--color-white) 78%, var(--color-black));
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.visit-gallery-card {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.visit-gallery-kicker {
+  color: var(--color-white);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.visit-gallery-card h2 {
+  max-width: 21rem;
+  color: var(--color-white);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.visit-gallery-info {
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.visit-gallery-info p {
+  margin: 0;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
+  border-radius: 8px;
+  color: var(--color-white);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.visit-gallery-info span {
+  display: block;
+  margin-bottom: 0.42rem;
+}
+
+.visit-gallery-map {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
+  border-radius: 8px;
+}
+
+.visit-gallery-map span {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 2;
+  height: 1.15rem;
+  width: 1.15rem;
+  border: 0.25rem solid var(--color-white);
+  border-radius: 999px 999px 999px 0;
+  background: var(--color-accent);
+  box-shadow: 0 0 1.2rem color-mix(in srgb, var(--color-accent) 68%, transparent);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.visit-gallery-map iframe {
+  display: block;
+  width: 100%;
+  height: 13rem;
+  border: 0;
+  filter: grayscale(0.15) contrast(1.05);
+}
+
+.visit-gallery-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 2.35rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 58%, transparent);
+  border-radius: 999px;
+  color: var(--color-white);
+  font-size: 0.86rem;
+  font-weight: 900;
+  padding: 0.5rem 0.9rem;
   text-decoration: none;
 }
 
@@ -2204,7 +2523,7 @@ h3,
   }
 
   .hero-actions {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 0.65rem;
     padding-top: 0.35rem;
@@ -2532,6 +2851,62 @@ h3,
     min-height: 2rem;
     font-size: 0.74rem;
     padding: 0.35rem 0.6rem;
+  }
+
+  .visit-gallery-section {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .visit-gallery-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-gallery-hero {
+    min-height: 23rem;
+  }
+
+  .visit-room-orbit {
+    height: 13rem;
+    width: min(88%, 18rem);
+  }
+
+  .visit-room-wall-back,
+  .visit-room-wall-left,
+  .visit-room-wall-right {
+    height: 7rem;
+  }
+
+  .visit-room-wall-left,
+  .visit-room-wall-right {
+    width: 7rem;
+  }
+
+  .visit-room-frame {
+    height: 2.5rem;
+    width: 3.25rem;
+    border-width: 0.2rem;
+  }
+
+  .visit-room-bench {
+    width: 5.25rem;
+  }
+
+  .visit-gallery-caption {
+    right: 1rem;
+    max-width: none;
+  }
+
+  .visit-gallery-card h2 {
+    font-size: clamp(1.55rem, 9vw, 2.25rem);
+  }
+
+  .visit-gallery-info {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-gallery-map iframe {
+    height: 11.5rem;
   }
 
   .site-footer {

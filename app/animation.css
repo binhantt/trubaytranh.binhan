@@ -129,6 +129,17 @@
   }
 }
 
+@keyframes galleryRoomOrbit {
+  0%,
+  100% {
+    transform: rotateX(58deg) rotateZ(-39deg);
+  }
+
+  50% {
+    transform: rotateX(58deg) rotateZ(-31deg);
+  }
+}
+
 .hero-nav {
   animation: fadeReveal 620ms ease both;
 }
@@ -359,20 +370,16 @@
   transform: translateX(-0.45rem);
 }
 
-.art-detail-modal:target .art-detail-backdrop,
-.art-detail-modal.is-open .art-detail-backdrop {
+.art-detail-modal:target .art-detail-backdrop {
   animation: backdropFade 220ms ease both;
 }
 
-.art-detail-modal:target .art-detail-dialog,
-.art-detail-modal.is-open .art-detail-dialog {
+.art-detail-modal:target .art-detail-dialog {
   animation: modalPop 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .art-detail-modal:target .art-detail-image,
-.art-detail-modal:target .art-detail-copy,
-.art-detail-modal.is-open .art-detail-image,
-.art-detail-modal.is-open .art-detail-copy {
+.art-detail-modal:target .art-detail-copy {
   animation: softReveal 320ms 80ms ease both;
 }
 
@@ -396,6 +403,10 @@
 
 .site-footer-item:nth-child(3) {
   animation-delay: 220ms;
+}
+
+.visit-room-orbit {
+  animation: galleryRoomOrbit 9s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
