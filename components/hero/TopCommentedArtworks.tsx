@@ -45,7 +45,7 @@ export function TopCommentedArtworks() {
                 <Text as="p" className="ranking-board-title">
                   Bảng xếp hạng
                 </Text>
-                <Badge color="violet" variant="surface">
+                <Badge color="cyan" variant="surface">
                   Top 5
                 </Badge>
               </Flex>
@@ -123,7 +123,7 @@ export function TopCommentedArtworks() {
                         <Heading as="h3">{artwork.title}</Heading>
                         <Text as="p">{artwork.description}</Text>
                       </Box>
-                      <Badge color="violet" highContrast variant="surface">
+                      <Badge color="cyan" highContrast variant="surface">
                         {artwork.comments}
                       </Badge>
                     </Flex>

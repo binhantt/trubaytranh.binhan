@@ -84,7 +84,7 @@ export function ExhibitionSections() {
                     <Box className="art-detail-heading">
                       <Badge
                         className="art-detail-status"
-                        color="violet"
+                        color="cyan"
                         highContrast
                         variant="surface"
                       >

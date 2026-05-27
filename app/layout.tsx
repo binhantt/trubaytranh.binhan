@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <Theme accentColor="violet" grayColor="slate" radius="full">
+        <Theme accentColor="cyan" grayColor="slate" radius="full">
           {children}
         </Theme>
       </body>

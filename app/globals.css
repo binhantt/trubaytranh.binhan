@@ -2,9 +2,12 @@
 @import "./animation.css";
 
 :root {
-  --ui-background: #0F172A;
-  --ui-text: #F8FAFC;
-  --ui-border: #8B5CF6;
+  --bg: #09090B;
+  --text: #FAFAFA;
+  --accent: hsl(189, 94%, 43%);
+  --ui-background: var(--bg);
+  --ui-text: var(--text);
+  --ui-border: var(--accent);
   --color-black: var(--ui-background);
   --color-white: var(--ui-text);
   --color-accent: var(--ui-border);
@@ -51,6 +54,7 @@ main {
 #home,
 #gallery,
 #exhibitions,
+#visit-gallery,
 #site-footer {
   scroll-margin-top: 6rem;
 }
@@ -186,6 +190,10 @@ h3,
   color: var(--color-secondary);
   font-size: 0.68rem;
   font-weight: 600;
+}
+
+.hero-nav-list {
+  gap: clamp(0.3rem, 1.6vw, 1.25rem) !important;
 }
 
 .hero-nav-link:hover {
@@ -1107,19 +1115,19 @@ h3,
 
 .ranking-number.is-gold {
   background: linear-gradient(145deg, #fff8c7, #ffd84d 42%, #f6b800);
-  box-shadow: 0 0 1.2rem color-mix(in srgb, #ffd84d 34%, transparent);
+  box-shadow: 0 0 1.2rem color-mix(in srgb, #ffd84d 42%, transparent);
   color: var(--color-black);
 }
 
 .ranking-number.is-silver {
   background: linear-gradient(145deg, var(--color-white), #e5eef8 48%, #aebdcc);
-  box-shadow: 0 0 1rem color-mix(in srgb, #e5eef8 28%, transparent);
+  box-shadow: 0 0 1rem color-mix(in srgb, #e5eef8 34%, transparent);
   color: var(--color-black);
 }
 
 .ranking-number.is-bronze {
   background: linear-gradient(145deg, #ffd0a0, #f0a35a 48%, #b96528);
-  box-shadow: 0 0 1rem color-mix(in srgb, #f0a35a 28%, transparent);
+  box-shadow: 0 0 1rem color-mix(in srgb, #f0a35a 34%, transparent);
   color: var(--color-white);
 }
 
@@ -1160,19 +1168,19 @@ h3,
 }
 
 .ranking-rank.is-gold {
-  border-color: color-mix(in srgb, #ffd84d 70%, transparent);
+  border-color: color-mix(in srgb, #ffd84d 72%, transparent);
   background: color-mix(in srgb, #ffd84d 18%, transparent);
   color: #ffe98a;
 }
 
 .ranking-rank.is-silver {
-  border-color: color-mix(in srgb, #e5eef8 64%, transparent);
+  border-color: color-mix(in srgb, #e5eef8 66%, transparent);
   background: color-mix(in srgb, #e5eef8 14%, transparent);
   color: #f8fafc;
 }
 
 .ranking-rank.is-bronze {
-  border-color: color-mix(in srgb, #f0a35a 68%, transparent);
+  border-color: color-mix(in srgb, #f0a35a 70%, transparent);
   background: color-mix(in srgb, #f0a35a 16%, transparent);
   color: #ffc18a;
 }
@@ -1219,18 +1227,6 @@ h3,
   text-transform: uppercase;
 }
 
-.featured-kicker.is-gold span:last-child {
-  color: #ffe98a;
-}
-
-.featured-kicker.is-silver span:last-child {
-  color: #f8fafc;
-}
-
-.featured-kicker.is-bronze span:last-child {
-  color: #ffc18a;
-}
-
 .featured-rank-badge {
   border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
   background: color-mix(in srgb, var(--color-accent) 14%, transparent);
@@ -1241,21 +1237,21 @@ h3,
   border-color: color-mix(in srgb, #ffd84d 78%, transparent);
   background: color-mix(in srgb, #ffd84d 22%, transparent);
   color: #ffe98a;
-  box-shadow: 0 0 1rem color-mix(in srgb, #ffd84d 24%, transparent);
+  box-shadow: 0 0 1rem color-mix(in srgb, #ffd84d 28%, transparent);
 }
 
 .featured-rank-badge.is-silver {
   border-color: color-mix(in srgb, #e5eef8 70%, transparent);
   background: color-mix(in srgb, #e5eef8 16%, transparent);
   color: #f8fafc;
-  box-shadow: 0 0 0.9rem color-mix(in srgb, #e5eef8 18%, transparent);
+  box-shadow: 0 0 0.9rem color-mix(in srgb, #e5eef8 22%, transparent);
 }
 
 .featured-rank-badge.is-bronze {
   border-color: color-mix(in srgb, #f0a35a 72%, transparent);
   background: color-mix(in srgb, #f0a35a 18%, transparent);
   color: #ffc18a;
-  box-shadow: 0 0 0.9rem color-mix(in srgb, #f0a35a 20%, transparent);
+  box-shadow: 0 0 0.9rem color-mix(in srgb, #f0a35a 24%, transparent);
 }
 
 .art-display-header h3 {
@@ -1325,21 +1321,21 @@ h3,
   --cup-main: #ffd84d;
   --cup-mid: #f6b800;
   --cup-dark: #9f6b00;
-  filter: drop-shadow(0 0 1.4rem color-mix(in srgb, #ffd84d 54%, transparent));
+  filter: drop-shadow(0 0 1.4rem color-mix(in srgb, #ffd84d 58%, transparent));
 }
 
 .display-cup.is-silver {
   --cup-main: #f8fafc;
   --cup-mid: #cbd5e1;
   --cup-dark: #64748b;
-  filter: drop-shadow(0 0 1.1rem color-mix(in srgb, #f8fafc 36%, transparent));
+  filter: drop-shadow(0 0 1.1rem color-mix(in srgb, #f8fafc 40%, transparent));
 }
 
 .display-cup.is-bronze {
   --cup-main: #f0a35a;
   --cup-mid: #d97730;
   --cup-dark: #7c3f18;
-  filter: drop-shadow(0 0 1.1rem color-mix(in srgb, #f0a35a 38%, transparent));
+  filter: drop-shadow(0 0 1.1rem color-mix(in srgb, #f0a35a 42%, transparent));
 }
 
 .display-cup.is-muted {
@@ -1428,7 +1424,7 @@ h3,
 }
 
 .exhibition-section {
-  --exhibition-accent: #8B5CF6;
+  --exhibition-accent: var(--color-accent);
   position: relative;
   overflow: hidden;
   background:
@@ -1516,7 +1512,7 @@ h3,
   width: min(18rem, 58vw);
   height: 1px;
   margin-top: 0.45rem;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--exhibition-accent) 46%, transparent), var(--exhibition-accent), color-mix(in srgb, var(--exhibition-accent) 46%, transparent), transparent);
+  background: color-mix(in srgb, var(--color-white) 12%, transparent);
 }
 
 .exhibition-heading-meta {
@@ -2492,8 +2488,8 @@ h3,
     grid-template-columns: 1fr;
     align-content: start;
     min-height: auto;
-    gap: 2.6rem;
-    padding: 5rem 1rem 2.6rem;
+    gap: 2.1rem;
+    padding: 5rem 0.75rem 2.6rem;
   }
 
   .hero-copy-block {
@@ -2550,26 +2546,26 @@ h3,
   .hero-nav {
     top: 0.75rem;
     width: calc(100% - 1rem);
-    max-width: 23rem;
+    max-width: 25rem;
     padding: 0.35rem 0.45rem;
   }
 
   .hero-nav-link {
-    font-size: 0.56rem;
-    padding-inline: 0.25rem;
+    font-size: clamp(0.48rem, 2.15vw, 0.56rem);
+    padding-inline: 0.18rem;
     white-space: nowrap;
   }
 
   .diamond-gallery {
     align-self: center;
     justify-self: center;
-    height: clamp(10.75rem, 48vw, 12rem);
-    width: clamp(10.75rem, 48vw, 12rem);
+    height: clamp(16.75rem, 84vw, 19.25rem);
+    width: clamp(16.75rem, 84vw, 19.25rem);
     min-height: 0;
     min-width: 0;
     margin-right: 0;
-    margin-top: 0.25rem;
-    opacity: 0.9;
+    margin-top: -0.15rem;
+    opacity: 1;
     transform: none;
   }
 
@@ -2960,8 +2956,8 @@ h3,
 
 @media (max-width: 420px) {
   .hero-inner {
-    gap: 2.25rem;
-    padding-inline: 0.9rem;
+    gap: 1.9rem;
+    padding-inline: 0.6rem;
   }
 
   .hero-copy-block {
@@ -2984,7 +2980,7 @@ h3,
   }
 
   .diamond-gallery {
-    height: clamp(9.75rem, 46vw, 11rem);
-    width: clamp(9.75rem, 46vw, 11rem);
+    height: clamp(15.5rem, 82vw, 17.5rem);
+    width: clamp(15.5rem, 82vw, 17.5rem);
   }
 }

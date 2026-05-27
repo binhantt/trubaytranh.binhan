@@ -7,7 +7,7 @@ export function HeroContent() {
 
   return (
     <div className="hero-copy-block">
-      <Badge className="hero-badge" color="violet" highContrast variant="surface">
+      <Badge className="hero-badge" color="cyan" highContrast variant="surface">
         {siteData.hero.badge}
       </Badge>
 
